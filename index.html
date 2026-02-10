@@ -65,6 +65,41 @@
         margin-bottom: 1em;
       }
 
+      pre {
+        background: #f5f5f5;
+        border: 1px solid #ddd;
+        border-left: 3px solid #2c3e50;
+        color: #333;
+        page-break-inside: avoid;
+        font-family: monospace;
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 1.6em;
+        max-width: 100%;
+        overflow: auto;
+        padding: 1em 1.5em;
+        display: block;
+        word-wrap: break-word;
+      }
+      details {
+        margin-top: 1.5em;
+        background-color: #f9f9f9;
+        border-radius: 4px;
+        border: 1px solid #eee;
+      }
+      summary {
+        cursor: pointer;
+        padding: 0.8em 1.2em;
+        font-weight: bold;
+        color: #2c3e50;
+      }
+      details[open] > summary {
+        border-bottom: 1px solid #eee;
+      }
+      .troubleshooting-content {
+        padding: 0.5em 1.5em 1.5em 1.5em;
+      }
+
       /* 아이콘 fa-blog가 없을 경우를 대비해 펜촉 아이콘 사용 */
       .fa-blog:before {
         content: '\f303';
@@ -139,7 +174,7 @@
               비즈니스 임팩트를 만들고자 노력합니다.
             </p>
             <p>
-              특히 <strong>AI(LLM) 기반의 개발 방법론</strong>을 적극 활용하여,
+              <strong>AI(LLM) 기반의 개발 방법론</strong>을 적극 활용하여,
               반복적인 작업은 자동화하고 중요한 문제 해결에 집중합니다. 이를
               통해 확보한 시간은
               <strong>시스템 안정성 강화와 새로운 비즈니스 가치 창출</strong>에
@@ -249,7 +284,6 @@
         <section id="two">
           <div class="container">
             <h3>Tech Stack</h3>
-            <p>실무 환경에 바로 투입될 수 있는 기술셋을 보유하고 있습니다.</p>
             <ul class="feature-icons">
               <li class="icon solid fa-code">
                 <strong>Language</strong><br />Java 17, HTML5/CSS3, JS
@@ -302,26 +336,97 @@
                   <span class="small-text"
                     >Java, Spring Legacy, MyBatis, MySQL</span
                   >
+                  <p>
+                    재고, 발주, 정산 등 복잡한 물류 데이터를 관리하고, 경영진의
+                    빠른 의사결정을 돕는 대시보드를 제공하는 시스템입니다.
+                  </p>
 
-                  <ul class="project-list" style="margin-left: 20px">
-                    <li>
-                      <strong>[Biz] 데이터 정합성 & 트랜잭션:</strong><br />
-                      전표 번호(SAL-날짜-ID) 생성 시 동시성 문제를 해결하기 위해
-                      <code>@Transactional</code> 내에서
-                      <strong>'저장 → 포맷팅 → 갱신'</strong>의 원자성을
-                      보장하여 데이터 무결성을 확보했습니다.
-                    </li>
-                    <li>
-                      <strong>[Perf] 대시보드 성능 최적화:</strong><br />
-                      초기 로딩 지연을 해결하기 위해
-                      <strong>AJAX 비동기 통신</strong>을 적용했습니다.
-                      백엔드에서 <code>Stream API</code>로 월별 데이터를 미리
-                      집계하여 프론트엔드 연산 부하를 줄이고 렌더링 속도를
-                      개선했습니다.
-                    </li>
-                  </ul>
+                  <details>
+                    <summary>
+                      👉 1. 대시보드 데이터 집계 성능 최적화 (N+1 문제 해결)
+                    </summary>
+                    <div class="troubleshooting-content">
+                      <p>
+                        <strong>[문제]</strong> 초기에는 1월부터 12월까지의
+                        매출/지출 데이터를 각각 조회하는 루프로, 페이지 로딩 시
+                        총 24번의 쿼리가 실행되어 2~3초의 로딩 지연이
+                        발생했습니다.
+                      </p>
+                      <p>
+                        <strong>[해결]</strong> MyBatis에서
+                        <code>GROUP BY</code>를 사용하여 연간 데이터를 단 2번의
+                        쿼리로 조회하고, 백엔드에서 Stream API로 데이터를
+                        가공하여 쿼리 횟수를 92% 감소시켰습니다.
+                      </p>
+                      <pre><code class="language-sql">&lt;select id="selectYearlySales" resultType="SalesVO"&gt;
+    SELECT MONTH(sales_date) as month, SUM(amount) as totalAmount
+    FROM sales
+    WHERE YEAR(sales_date) = #{year}
+    GROUP BY MONTH(sales_date)
+&lt;/select&gt;</code></pre>
+                      <p>
+                        <strong>[결과]</strong> 로딩 속도를 0.4초로 단축하여
+                        사용자 경험을 개선했습니다.
+                      </p>
+                    </div>
+                  </details>
 
-                  <ul class="actions">
+                  <details>
+                    <summary>
+                      👉 2. 성장률(MoM/YoY) 계산 로직의 안정성 확보
+                    </summary>
+                    <div class="troubleshooting-content">
+                      <p>
+                        <strong>[문제]</strong> 전월 매출이 '0'일 경우, 성장률
+                        계산 시
+                        <code>ArithmeticException (Division by Zero)</code>이
+                        발생했습니다.
+                      </p>
+                      <p>
+                        <strong>[해결]</strong> 분모가 0인지 확인하는 삼항
+                        연산자 방어 로직을 추가하여 예외 발생을 원천
+                        차단했습니다.
+                      </p>
+                      <pre><code class="language-java">double growthRate = (lastMonthAmount == 0) 
+    ? (currentMonthAmount > 0 ? 100.0 : 0.0) 
+    : ((double)(currentMonthAmount - lastMonthAmount) / lastMonthAmount) * 100;</code></pre>
+                      <p>
+                        <strong>[결과]</strong> 데이터가 불충분한 상황에서도
+                        에러 없이 안정적으로 대시보드를 표출합니다.
+                      </p>
+                    </div>
+                  </details>
+
+                  <details>
+                    <summary>👉 3. 전표 번호 생성의 동시성 제어</summary>
+                    <div class="troubleshooting-content">
+                      <p>
+                        <strong>[문제]</strong> 매출/지출 등록 시 고유 전표 번호
+                        생성 과정에서, 다중 요청 시 중복 번호가 발생할 가능성이
+                        있었습니다.
+                      </p>
+                      <p>
+                        <strong>[해결]</strong> 저장, 포맷팅, 갱신 과정을
+                        <code>@Transactional</code>으로 묶어 원자성을
+                        보장했습니다.
+                      </p>
+                      <pre><code class="language-java">@Transactional(rollbackFor = Exception.class)
+public void registerSales(SalesDTO salesDTO) {
+    // 1. 기본 정보 저장 (ID 생성)
+    salesMapper.insertSales(salesDTO);
+    // 2. 생성된 ID로 고유 전표 번호 포맷팅
+    String serialNo = generateSerialNo(salesDTO.getId());
+    // 3. 전표 번호 업데이트 (원자성 보장)
+    salesMapper.updateSerialNo(salesDTO.getId(), serialNo);
+}</code></pre>
+                      <p>
+                        <strong>[결과]</strong> 데이터 정합성을 유지하여
+                        안정적인 전표 관리 시스템을 구축했습니다.
+                      </p>
+                    </div>
+                  </details>
+
+                  <ul class="actions" style="margin-top: 2em">
                     <li>
                       <a
                         href="https://github.com/geeunii/WMS-Finance-Dashboard"
@@ -349,29 +454,96 @@
                   <span class="small-text"
                     >Spring Boot, Vue.js, Google Gemini, Docker, Nginx</span
                   >
+                  <p>
+                    AI가 숙소 리뷰를 분석하여 개선점을 제안하고, 이중화된 서버
+                    아키텍처로 안정성과 보안을 강화한 플랫폼입니다.
+                  </p>
 
-                  <ul class="project-list" style="margin-left: 20px">
-                    <li>
-                      <strong>[AI] Cold Start & 파싱 오류 해결:</strong><br />
-                      데이터가 없는 숙소를 위해 'Review Analysis'와 'Trend
-                      Consulting'으로 로직을 분기하여 정보 제공률 100%를
-                      달성했습니다. AI 응답 포맷 오류를 방어하는
-                      <code>parseSafe</code> 로직을 구현해
-                      <strong>파싱 에러율 0%</strong>를 만들었습니다.
-                    </li>
-                    <li>
-                      <strong>[Infra] 서버 이중화 및 분리 설계:</strong><br />
-                      기존 단일 서버의 보안 취약점 해결을 위해 User/Admin 서버를
-                      분리하는 <strong>이중화 구조를 설계</strong>하고, Spring
-                      Profile을 활용해 Admin 서버와 DB를 Private Subnet에
-                      배치하여 외부 접근을 차단했습니다.<br />
-                      <small
-                        style="color: #777; display: block; margin-top: 5px"
-                      ></small>
-                    </li>
-                  </ul>
+                  <details>
+                    <summary>
+                      👉 1. AI 응답 불확실성 및 데이터 파싱 오류 해결
+                    </summary>
+                    <div class="troubleshooting-content">
+                      <p>
+                        <strong>[문제]</strong> Gemini API가
+                        `List&lt;String&gt;`이 아닌 단순 `String`이나 포맷이
+                        깨진 데이터를 간헐적으로 반환하여 `ClassCastException`이
+                        발생했습니다.
+                      </p>
+                      <p>
+                        <strong>[해결]</strong> AI 응답을 `Object`로 받은 뒤,
+                        `instanceof`로 타입을 확인하고 다양한 케이스(List, JSON
+                        문자열, 쉼표 분리 문자열)에 대응하여
+                        `List&lt;String&gt;`으로 안전하게 변환하는 2단계 방어적
+                        파싱 로직(`parseSafe`, `convertToList`)을 구현했습니다.
+                      </p>
+                      <p>
+                        <strong>[결과]</strong> 파싱 에러율 0%를 달성하여 AI
+                        기능의 안정성을 확보했습니다.
+                      </p>
+                    </div>
+                  </details>
 
-                  <ul class="actions">
+                  <details>
+                    <summary>
+                      👉 2. Nginx 502 Bad Gateway (리버스 프록시 라우팅 실패)
+                    </summary>
+                    <div class="troubleshooting-content">
+                      <p>
+                        <strong>[문제]</strong> 서버 분리 후, Public Subnet의
+                        Nginx가 Private Subnet에 있는 Admin
+                        Server(`10.0.x.x:8081`)를 찾지 못해 502 에러가
+                        발생했습니다.
+                      </p>
+                      <p>
+                        <strong>[해결]</strong> Nginx의 `location /api/admin/`
+                        블록에 `proxy_pass` 대상으로 `localhost`가 아닌 Admin
+                        서버의 Private IP를 명시하여 라우팅 경로를 확정했습니다.
+                      </p>
+                      <pre><code class="language-nginx"># /etc/nginx/sites-available/default
+location /api/admin/ {
+    # Admin 서버의 Private IP를 직접 지정
+    proxy_pass http://10.0.x.x:8081;
+    proxy_set_header Host $host;
+}</code></pre>
+                      <p>
+                        <strong>[결과]</strong> 외부 요청이 Nginx를 통해서만
+                        내부망 서버에 도달하도록 강제하여 보안을 강화했습니다.
+                      </p>
+                    </div>
+                  </details>
+
+                  <details>
+                    <summary>
+                      👉 3. Docker "Bind for 0.0.0.0:8080 failed" (좀비 포트
+                      충돌)
+                    </summary>
+                    <div class="troubleshooting-content">
+                      <p>
+                        <strong>[문제]</strong> `docker run` 시 8080 포트가 이미
+                        사용 중이라는 에러가 발생했으며, `netstat`으로 확인해도
+                        점유 프로세스가 보이지 않는 ''Ghost Port''
+                        현상이었습니다.
+                      </p>
+                      <p>
+                        <strong>[해결]</strong> `systemctl stop
+                        docker.socket`으로 소켓을 정리하고, User/Admin 서버의
+                        Host 포트를 각각 `8080`, `8081`로 명확히 분리하여 충돌을
+                        원천적으로 방지했습니다.
+                      </p>
+                      <pre><code class="language-bash"># User Server
+docker run -d -p 8080:8080 --name user-server your-image
+
+# Admin Server
+docker run -d -p 8081:8081 --name admin-server your-image</code></pre>
+                      <p>
+                        <strong>[결과]</strong> 안정적인 컨테이너 배포 환경을
+                        구축했습니다.
+                      </p>
+                    </div>
+                  </details>
+
+                  <ul class="actions" style="margin-top: 2em">
                     <li>
                       <a
                         href="https://github.com/geeunii/Guesthouse-Platform-MyPart"
@@ -402,26 +574,80 @@
                   <span class="small-text"
                     >Java, Swing, Multi-threading, AWT</span
                   >
+                  <p>
+                    Java의 핵심 CS 개념인 멀티스레딩, 동기화, GUI 렌더링을
+                    학습하기 위해 제작한 리듬 게임입니다.
+                  </p>
 
-                  <ul class="project-list" style="margin-left: 20px">
-                    <li>
-                      <strong>[CS Core] 멀티스레드 동시성 제어:</strong><br />
-                      수십 개의 노트 객체(Thread)와 배경음악을 독립적으로
-                      제어하며 발생하는 동기화 문제를 해결했습니다. 노트 판정 후
-                      즉시 <code>interrupt()</code>로 스레드 자원을 해제하여
-                      메모리 누수를 방지했습니다.
-                    </li>
-                    <li>
-                      <strong>[Algo] 랜덤 비트 생성 & 최적화:</strong><br />
-                      단순 랜덤이 아닌 '최소/최대 간격' 제약 조건을 둔
-                      알고리즘으로 음악적인 비트를 생성했습니다. Swing의 화면
-                      깜빡임 현상을
-                      <strong>더블 버퍼링(Double Buffering)</strong> 기법으로
-                      해결하여 렌더링을 최적화했습니다.
-                    </li>
-                  </ul>
+                  <details>
+                    <summary>
+                      👉 1. 수많은 노트 스레드로 인한 메모리 누수 해결
+                    </summary>
+                    <div class="troubleshooting-content">
+                      <p>
+                        <strong>[문제]</strong> 게임이 진행될수록 생성된 Note
+                        스레드가 누적되어 JVM 힙 메모리 사용량이 급증하고 렉이
+                        발생했습니다.
+                      </p>
+                      <p>
+                        <strong>[해결]</strong> 판정선을 지나거나 키 입력이 된
+                        노트는 즉시 `interrupt()`를 호출하여 스레드를
+                        종료시키고, `ArrayList`에서 해당 객체를 `remove()`하여
+                        GC가 자원을 수거하도록 유도했습니다.
+                      </p>
+                      <p>
+                        <strong>[결과]</strong> 장시간 플레이 시에도 안정적인
+                        메모리 점유율을 유지했습니다.
+                      </p>
+                    </div>
+                  </details>
 
-                  <ul class="actions">
+                  <details>
+                    <summary>
+                      👉 2. 음악과 노트의 싱크 밀림 현상 (Time Drift)
+                    </summary>
+                    <div class="troubleshooting-content">
+                      <p>
+                        <strong>[문제]</strong> `Thread.sleep()`의 오차로 인해
+                        시간이 갈수록 음악보다 노트가 느려지는 현상이
+                        발생했습니다.
+                      </p>
+                      <p>
+                        <strong>[해결]</strong> `sleep`에만 의존하지 않고, Music
+                        스레드에서 현재 재생 중인 음악의 타임스탬프를 실시간으로
+                        가져와 `(현재시간 - 노트생성시간) * 속도` 공식을
+                        적용하여 노트의 Y좌표를 강제로 동기화했습니다.
+                      </p>
+                      <p>
+                        <strong>[결과]</strong> 곡이 끝날 때까지 1ms 오차 범위
+                        내에서 정확한 싱크를 유지했습니다.
+                      </p>
+                    </div>
+                  </details>
+
+                  <details>
+                    <summary>
+                      👉 3. 화면 깜빡임 (Screen Flickering) 현상
+                    </summary>
+                    <div class="troubleshooting-content">
+                      <p>
+                        <strong>[문제]</strong> AWT의 `paint()` 메소드가
+                        캔버스를 지우고 다시 그리는 과정이 눈에 보여 심한
+                        깜빡임이 발생했습니다.
+                      </p>
+                      <p>
+                        <strong>[해결]</strong> 가상 이미지를 생성하여 모든
+                        그래픽 요소를 그린 뒤, 완성된 이미지를 한 번에 출력하는
+                        **더블 버퍼링(Double Buffering)** 기법을 도입했습니다.
+                      </p>
+                      <p>
+                        <strong>[결과]</strong> 60fps 수준의 부드러운
+                        애니메이션을 구현했습니다.
+                      </p>
+                    </div>
+                  </details>
+
+                  <ul class="actions" style="margin-top: 2em">
                     <li>
                       <a
                         href="https://github.com/geeunii/Personal_Project"
