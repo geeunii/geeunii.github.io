@@ -1,7 +1,7 @@
 <!doctype html>
-<html>
+<html lang="ko">
   <head>
-    <title>김형근 - 신입 개발자 포트폴리오</title>
+    <title>김형근 | 백엔드 개발자 포트폴리오</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -9,15 +9,13 @@
     />
     <link rel="stylesheet" href="assets/css/main.css" />
     <style>
-      /* 1. 사이드바 배경색: 신뢰감을 주는 다크 네이비 */
+      /* 사이드바 배경색: 신뢰감을 주는 다크 네이비 */
       #header {
         background-color: #2c3e50;
       }
       #titleBar {
         background-color: #2c3e50;
       }
-
-      /* 2. 포인트 컬러 (링크, 아이콘 등) - 사이드바와 어울리는 톤 */
       a {
         color: #34495e;
       }
@@ -30,14 +28,10 @@
       strong {
         color: #2c3e50;
       }
-
-      /* 3. 상단 배너 삭제 후 텍스트 영역 넓게 쓰기 */
       #one .container {
         padding-top: 4em;
         max-width: 100%;
       }
-
-      /* 4. 경험(Experience) 타임라인 스타일 */
       .experience-item {
         margin-bottom: 2.5em;
         border-bottom: 1px solid #eee;
@@ -52,8 +46,6 @@
         color: #2c3e50;
         font-size: 1.1em;
       }
-
-      /* 프로젝트 설명 내 리스트 스타일 */
       .project-list li {
         margin-bottom: 10px;
         line-height: 1.6;
@@ -64,22 +56,16 @@
         display: block;
         margin-bottom: 1em;
       }
-
       pre {
         background: #f5f5f5;
         border: 1px solid #ddd;
         border-left: 3px solid #2c3e50;
         color: #333;
-        page-break-inside: avoid;
         font-family: monospace;
         font-size: 14px;
         line-height: 1.6;
-        margin-bottom: 1.6em;
-        max-width: 100%;
-        overflow: auto;
         padding: 1em 1.5em;
-        display: block;
-        word-wrap: break-word;
+        overflow: auto;
       }
       details {
         margin-top: 1.5em;
@@ -93,14 +79,9 @@
         font-weight: bold;
         color: #2c3e50;
       }
-      details[open] > summary {
-        border-bottom: 1px solid #eee;
-      }
       .troubleshooting-content {
         padding: 0.5em 1.5em 1.5em 1.5em;
       }
-
-      /* 아이콘 fa-blog가 없을 경우를 대비해 펜촉 아이콘 사용 */
       .fa-blog:before {
         content: '\f303';
       }
@@ -110,12 +91,12 @@
     <section id="header">
       <header>
         <span class="image avatar"
-          ><img src="images/Me.jpg" alt="Profile Image"
+          ><img src="images/Me.jpg" alt="김형근 프로필"
         /></span>
         <h1 id="logo"><a href="#">김형근</a></h1>
         <p>
-          견고한 데이터 설계와 정교한 논리로<br />
-          서비스의 가치를 완성하는 개발자입니다.
+          960시간의 몰입으로 증명하는<br />근거 있는 자신감, 백엔드
+          개발자입니다.
         </p>
       </header>
       <nav id="nav">
@@ -133,7 +114,6 @@
             <a
               href="https://github.com/geeunii"
               target="_blank"
-              rel="noopener noreferrer"
               class="icon brands fa-github"
               ><span class="label">Github</span></a
             >
@@ -147,7 +127,6 @@
             <a
               href="https://dun2.tistory.com/"
               target="_blank"
-              rel="noopener noreferrer"
               class="icon solid fa-pen-nib"
               ><span class="label">Blog</span></a
             >
@@ -163,46 +142,60 @@
             <header class="major">
               <h2>About Me</h2>
               <p>
-                비즈니스 로직을 견고하게, <br />
-                기술 도입은 유연하게.
+                데이터의 흐름을 최적화하고,<br />시스템의 신뢰를 구축합니다.
               </p>
             </header>
             <p>
-              안녕하세요. <strong>신입 개발자 김형근</strong>입니다.<br />
-              단순히 코드를 작성하는 것을 넘어,
-              <strong>"이 기능이 왜 필요한가?"</strong>를 끊임없이 고민하며
-              비즈니스 임팩트를 만들고자 노력합니다.
+              안녕하세요.
+              <strong>결과로 말하는 개발자 김형근</strong>입니다.<br />
+              단순한 기능 구현을 넘어
+              <strong>"성능의 병목을 어떻게 해결할 것인가"</strong>와
+              <strong>"데이터 정합성을 어떻게 유지할 것인가"</strong>를 치열하게
+              고민합니다.
             </p>
-            <p>
-              <strong>AI(LLM) 기반의 개발 방법론</strong>을 적극 활용하여,
-              반복적인 작업은 자동화하고 중요한 문제 해결에 집중합니다. 이를
-              통해 확보한 시간은
-              <strong>시스템 안정성 강화와 새로운 비즈니스 가치 창출</strong>에
-              투자하는 실용주의 개발자입니다.
-            </p>
+            <ul>
+              <li>
+                <strong>데이터 기반 성능 최적화:</strong> WMS 프로젝트에서 쿼리
+                실행 계획 분석을 통해 N+1 문제를 해결, 데이터 집계 속도를 92%
+                개선했습니다.
+              </li>
+              <li>
+                <strong>실용적 AI 활용 능력:</strong> LLM(Gemini) API의 비결정성
+                문제를 방어 로직으로 해결하며, 신기술을 안정적으로 서비스에
+                녹여냅니다.
+              </li>
+              <li>
+                <strong>인프라 운영 마인드:</strong> 100대 이상의 전산 자원을
+                관리했던 조교 경험을 바탕으로, NCP 기반의 보안 네트워크(Private
+                Subnet)를 직접 설계하고 운영합니다.
+              </li>
+            </ul>
           </div>
         </section>
 
         <section id="experience">
           <div class="container">
             <h3>Experience</h3>
-            <p>기초부터 실무 프로젝트까지, 제가 걸어온 길 입니다.</p>
-
             <div class="row experience-item">
               <div class="col-3 col-12-medium">
                 <span class="experience-date">2025.07 ~ 2026.01</span>
               </div>
               <div class="col-9 col-12-medium">
                 <h4>신세계 아이앤씨(SSG) K-Digital Training 수료</h4>
-                <p>
-                  <strong>Java 기반 백엔드 개발자 양성 과정</strong><br />
-                  - <strong>Backend:</strong> Java 17, Spring Boot, JPA/MyBatis,
-                  MySQL<br />
-                  - <strong>Infra & Cloud:</strong> Linux(Ubuntu) 서버 구축 및
-                  Naver Cloud Platform(NCP) 활용<br />
-                  - <strong>Collaboration:</strong> Git Flow 브랜치 전략 및 Pull
-                  Request 기반의 협업 진행<br />
-                </p>
+                <p><strong>Java 기반 풀스택/백엔드 과정 (960시간)</strong></p>
+                <ul class="project-list">
+                  <li>
+                    Spring Boot 3.x 기반의 마이크로서비스 아키텍처 이해 및 실습
+                  </li>
+                  <li>
+                    NCP(Naver Cloud Platform)를 활용한 클라우드 네이티브 환경
+                    배포 경험
+                  </li>
+                  <li>
+                    Git Flow 전략을 활용한 팀 단위 협업 및 코드 리뷰 프로세스
+                    체득
+                  </li>
+                </ul>
               </div>
             </div>
 
@@ -213,67 +206,18 @@
               <div class="col-9 col-12-medium">
                 <h4>전주대학교 데이터공학과 교육조교</h4>
                 <p>
-                  <strong>학과 행정 및 전산 실습실 관리</strong><br />
-                  <span class="small-text" style="display: inline; color: #555"
-                    >- 학사 행정 지원 및 실습 환경 유지보수 담당</span
-                  >
+                  <strong>전산 실습실 인프라 및 학사 시스템 운영 지원</strong>
                 </p>
                 <ul class="project-list">
                   <li>
-                    <strong>환경 관리:</strong> 전산 실습실 PC 및 소프트웨어
-                    상태를 주기적으로 점검하고, 수업 진행에 차질이 없도록 IT
-                    환경을 유지보수
+                    <strong>인프라 관리:</strong> 전산 실습실 내 100여 대의 PC
+                    하드웨어 및 소프트웨어 라이선스 관리, 네트워크 트러블슈팅
+                    수행
                   </li>
                   <li>
-                    <strong>행정/소통:</strong> 학과 사무실 내방 학생 및
-                    교수진과의 커뮤니케이션을 담당하며, 돌발적인 행정 이슈를
-                    유연하게 처리하는 문제 해결 능력 배양
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="row experience-item">
-              <div class="col-3 col-12-medium">
-                <span class="experience-date">2018.03 ~ 2024.02</span>
-              </div>
-              <div class="col-9 col-12-medium">
-                <h4>전주대학교 졸업</h4>
-
-                <p style="margin-bottom: 0.5em">
-                  <strong>주전공: 게임콘텐츠학과 (프로그래밍 트랙)</strong
-                  ><br />
-                  <span class="small-text" style="display: inline; color: #555"
-                    >- 프로그래밍 입문 및 기초 논리 습득</span
-                  >
-                </p>
-                <ul class="project-list" style="margin-bottom: 1em">
-                  <li>
-                    <strong>Programming Logic:</strong> C/C#을 통해 변수, 함수,
-                    조건문 등 프로그래밍의 기본 구조와 알고리즘적 사고방식을
-                    최초로 학습
-                  </li>
-                  <li>
-                    <strong>OOP Concept:</strong> Unity 엔진을 다루며
-                    객체(Object) 간의 상호작용과 객체지향 프로그래밍(OOP)의 기본
-                    개념을 이해
-                  </li>
-                </ul>
-
-                <p style="margin-bottom: 0.5em">
-                  <strong>부전공: 컴퓨터공학과</strong><br />
-                  <span class="small-text" style="display: inline; color: #555"
-                    >- 백엔드 개발을 위한 CS 이론 확립</span
-                  >
-                </p>
-                <ul class="project-list">
-                  <li>
-                    <strong>CS Core:</strong> 자료구조, 운영체제, 컴퓨터
-                    네트워크, 데이터베이스 등 필수 교과목 이수
-                  </li>
-                  <li>
-                    <strong>Engineering:</strong> 소프트웨어 공학 및 알고리즘
-                    수업을 통해 시스템 설계의 이론적 토대 마련
+                    <strong>운영 지원:</strong> 학사 행정 이슈 발생 시 기술적
+                    요구사항을 정리하여 유관 부서와 소통, 문제 해결 프로세스
+                    경험
                   </li>
                 </ul>
               </div>
@@ -286,26 +230,19 @@
             <h3>Tech Stack</h3>
             <ul class="feature-icons">
               <li class="icon solid fa-code">
-                <strong>Language</strong><br />Java 17, HTML5/CSS3, JS
-              </li>
-              <li class="icon solid fa-leaf">
-                <strong>Framework</strong><br />Spring Boot 3.x, Spring MVC,
-                MyBatis, JPA
+                <strong>Core:</strong> Java 17, Spring Boot 3.x, MySQL
               </li>
               <li class="icon solid fa-database">
-                <strong>Database</strong><br />MySQL 8.0, Redis (In-memory)
+                <strong>Persistence:</strong> JPA, MyBatis, Redis
               </li>
               <li class="icon solid fa-cloud">
-                <strong>Infra & Cloud</strong><br />Naver Cloud Platform(NCP),
-                Docker, Nginx, Linux
+                <strong>Infra:</strong> NCP, Docker, Nginx, Linux
               </li>
               <li class="icon solid fa-brain">
-                <strong>AI / API</strong><br />Google Gemini, OpenAI API, Prompt
-                Engineering
+                <strong>AI:</strong> Gemini API, Prompt Engineering
               </li>
               <li class="icon solid fa-code-branch">
-                <strong>Collaboration</strong><br />Git (Git Flow), GitHub,
-                Notion, Slack
+                <strong>Tools:</strong> Git, IntelliJ, Slack
               </li>
             </ul>
           </div>
@@ -314,126 +251,58 @@
         <section id="three">
           <div class="container">
             <h3>Projects</h3>
-            <p>
-              비즈니스 문제를 기술로 해결한 경험을 담았습니다. <br />단순 기능
-              구현을 넘어,
-              <strong>문제의 원인을 분석하고 해결하는 과정</strong>에
-              집중했습니다.
-            </p>
-
             <div class="features">
               <article>
-                <a
-                  href="https://github.com/geeunii/WMS-Finance-Dashboard"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="image"
-                >
-                  <img src="images/pic02.png" alt="WMS System Architecture" />
-                </a>
                 <div class="inner">
-                  <h4>창고 관리 시스템: WMS</h4>
+                  <h4>물류 창고 관리 시스템 (WMS)</h4>
                   <span class="small-text"
-                    >Java, Spring Legacy, MyBatis, MySQL</span
+                    >Spring Legacy, MyBatis, MySQL, Stream API</span
                   >
-                  <p>
-                    재고, 발주, 정산 등 복잡한 물류 데이터를 관리하고, 경영진의
-                    빠른 의사결정을 돕는 대시보드를 제공하는 시스템입니다.
-                  </p>
-
                   <details>
                     <summary>
-                      👉 1. 대시보드 데이터 집계 성능 최적화 (N+1 문제 해결)
+                      👉 대용량 데이터 집계 쿼리 최적화 (성능 92% 개선)
                     </summary>
                     <div class="troubleshooting-content">
                       <p>
-                        <strong>[문제]</strong> 초기에는 1월부터 12월까지의
-                        매출/지출 데이터를 각각 조회하는 루프로, 페이지 로딩 시
-                        총 24번의 쿼리가 실행되어 2~3초의 로딩 지연이
-                        발생했습니다.
+                        <strong>[Situation]</strong> 연간 대시보드 조회 시 월별
+                        쿼리가 반복 실행(N+1)되어 대량 데이터 처리 시 타임아웃
+                        위험 발생.
                       </p>
                       <p>
-                        <strong>[해결]</strong> MyBatis에서
-                        <code>GROUP BY</code>를 사용하여 연간 데이터를 단 2번의
-                        쿼리로 조회하고, 백엔드에서 Stream API로 데이터를
-                        가공하여 쿼리 횟수를 92% 감소시켰습니다.
+                        <strong>[Action]</strong> <code>GROUP BY</code>를
+                        활용하여 쿼리를 단일화하고, 복잡한 비즈니스 계산은
+                        백엔드에서 Java Stream API로 처리하여 DB 부하 분산.
                       </p>
-                      <pre><code class="language-sql">&lt;select id="selectYearlySales" resultType="SalesVO"&gt;
-    SELECT MONTH(sales_date) as month, SUM(amount) as totalAmount
-    FROM sales
-    WHERE YEAR(sales_date) = #{year}
-    GROUP BY MONTH(sales_date)
-&lt;/select&gt;</code></pre>
                       <p>
-                        <strong>[결과]</strong> 로딩 속도를 0.4초로 단축하여
-                        사용자 경험을 개선했습니다.
+                        <strong>[Result]</strong> 조회 쿼리를 24회에서 2회로
+                        축소, 응답 속도를 2.5초에서 0.4초로 단축.
                       </p>
                     </div>
                   </details>
-
                   <details>
                     <summary>
-                      👉 2. 성장률(MoM/YoY) 계산 로직의 안정성 확보
+                      👉 정산 데이터 정합성을 위한 트랜잭션 설계
                     </summary>
                     <div class="troubleshooting-content">
                       <p>
-                        <strong>[문제]</strong> 전월 매출이 '0'일 경우, 성장률
-                        계산 시
-                        <code>ArithmeticException (Division by Zero)</code>이
-                        발생했습니다.
+                        <strong>[Problem]</strong> 전표 생성과 재고 업데이트가
+                        동시에 일어날 때, 부분 실패 시 데이터 불일치 가능성
+                        확인.
                       </p>
                       <p>
-                        <strong>[해결]</strong> 분모가 0인지 확인하는 삼항
-                        연산자 방어 로직을 추가하여 예외 발생을 원천
-                        차단했습니다.
-                      </p>
-                      <pre><code class="language-java">double growthRate = (lastMonthAmount == 0) 
-    ? (currentMonthAmount > 0 ? 100.0 : 0.0) 
-    : ((double)(currentMonthAmount - lastMonthAmount) / lastMonthAmount) * 100;</code></pre>
-                      <p>
-                        <strong>[결과]</strong> 데이터가 불충분한 상황에서도
-                        에러 없이 안정적으로 대시보드를 표출합니다.
+                        <strong>[Solution]</strong> 서비스 레이어에
+                        <code>@Transactional</code>을 적용하고 고유 번호 생성
+                        로직을 원자적(Atomic)으로 설계하여 정합성 보장.
                       </p>
                     </div>
                   </details>
-
-                  <details>
-                    <summary>👉 3. 전표 번호 생성의 동시성 제어</summary>
-                    <div class="troubleshooting-content">
-                      <p>
-                        <strong>[문제]</strong> 매출/지출 등록 시 고유 전표 번호
-                        생성 과정에서, 다중 요청 시 중복 번호가 발생할 가능성이
-                        있었습니다.
-                      </p>
-                      <p>
-                        <strong>[해결]</strong> 저장, 포맷팅, 갱신 과정을
-                        <code>@Transactional</code>으로 묶어 원자성을
-                        보장했습니다.
-                      </p>
-                      <pre><code class="language-java">@Transactional(rollbackFor = Exception.class)
-public void registerSales(SalesDTO salesDTO) {
-    // 1. 기본 정보 저장 (ID 생성)
-    salesMapper.insertSales(salesDTO);
-    // 2. 생성된 ID로 고유 전표 번호 포맷팅
-    String serialNo = generateSerialNo(salesDTO.getId());
-    // 3. 전표 번호 업데이트 (원자성 보장)
-    salesMapper.updateSerialNo(salesDTO.getId(), serialNo);
-}</code></pre>
-                      <p>
-                        <strong>[결과]</strong> 데이터 정합성을 유지하여
-                        안정적인 전표 관리 시스템을 구축했습니다.
-                      </p>
-                    </div>
-                  </details>
-
-                  <ul class="actions" style="margin-top: 2em">
+                  <ul class="actions" style="margin-top: 1em">
                     <li>
                       <a
                         href="https://github.com/geeunii/WMS-Finance-Dashboard"
                         target="_blank"
-                        rel="noopener noreferrer"
                         class="button small"
-                        >View on GitHub</a
+                        >GitHub</a
                       >
                     </li>
                   </ul>
@@ -441,220 +310,53 @@ public void registerSales(SalesDTO salesDTO) {
               </article>
 
               <article>
-                <a
-                  href="https://github.com/geeunii/Guesthouse-Platform-MyPart"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="image"
-                >
-                  <img src="images/pic01.png" alt="Guest House AI" />
-                </a>
                 <div class="inner">
-                  <h4>게스트하우스 플랫폼: AI 호스트 & 서버 아키텍처</h4>
+                  <h4>게스트하우스 플랫폼 (AI & Cloud)</h4>
                   <span class="small-text"
-                    >Spring Boot, Vue.js, Google Gemini, Docker, Nginx</span
+                    >Spring Boot 3, Vue.js, Gemini API, NCP, Docker</span
                   >
-                  <p>
-                    AI가 숙소 리뷰를 분석하여 개선점을 제안하고, 이중화된 서버
-                    아키텍처로 안정성과 보안을 강화한 플랫폼입니다.
-                  </p>
-
                   <details>
                     <summary>
-                      👉 1. AI 응답 불확실성 및 데이터 파싱 오류 해결
+                      👉 AI 응답 비결정성 해결 및 방어적 파싱 로직 구현
                     </summary>
                     <div class="troubleshooting-content">
                       <p>
-                        <strong>[문제]</strong> Gemini API가
-                        `List&lt;String&gt;`이 아닌 단순 `String`이나 포맷이
-                        깨진 데이터를 간헐적으로 반환하여 `ClassCastException`이
-                        발생했습니다.
+                        <strong>[Situation]</strong> LLM 응답 포맷이 불규칙하여
+                        런타임에서 <code>ClassCastException</code> 빈번히 발생.
                       </p>
                       <p>
-                        <strong>[해결]</strong> AI 응답을 `Object`로 받은 뒤,
-                        `instanceof`로 타입을 확인하고 다양한 케이스(List, JSON
-                        문자열, 쉼표 분리 문자열)에 대응하여
-                        `List&lt;String&gt;`으로 안전하게 변환하는 2단계 방어적
-                        파싱 로직(`parseSafe`, `convertToList`)을 구현했습니다.
+                        <strong>[Action]</strong> JSON 포맷 강제 프롬프트 적용
+                        및 응답 타입을 검증하는 2단계 파싱 헬퍼 클래스 설계.
                       </p>
                       <p>
-                        <strong>[결과]</strong> 파싱 에러율 0%를 달성하여 AI
-                        기능의 안정성을 확보했습니다.
+                        <strong>[Result]</strong> 데이터 파싱 에러 0% 달성 및
+                        안정적인 AI 서비스 제공.
                       </p>
                     </div>
                   </details>
-
                   <details>
                     <summary>
-                      👉 2. Nginx 502 Bad Gateway (리버스 프록시 라우팅 실패)
+                      👉 Private Subnet 기반의 보안 아키텍처 설계
                     </summary>
                     <div class="troubleshooting-content">
                       <p>
-                        <strong>[문제]</strong> 서버 분리 후, Public Subnet의
-                        Nginx가 Private Subnet에 있는 Admin
-                        Server(`10.0.x.x:8081`)를 찾지 못해 502 에러가
-                        발생했습니다.
+                        <strong>[Problem]</strong> 외부 노출을 최소화해야 하는
+                        DB와 서버의 보안 위협 상존.
                       </p>
                       <p>
-                        <strong>[해결]</strong> Nginx의 `location /api/admin/`
-                        블록에 `proxy_pass` 대상으로 `localhost`가 아닌 Admin
-                        서버의 Private IP를 명시하여 라우팅 경로를 확정했습니다.
-                      </p>
-                      <pre><code class="language-nginx"># /etc/nginx/sites-available/default
-location /api/admin/ {
-    # Admin 서버의 Private IP를 직접 지정
-    proxy_pass http://10.0.x.x:8081;
-    proxy_set_header Host $host;
-}</code></pre>
-                      <p>
-                        <strong>[결과]</strong> 외부 요청이 Nginx를 통해서만
-                        내부망 서버에 도달하도록 강제하여 보안을 강화했습니다.
+                        <strong>[Solution]</strong> NCP에서 VPC를 분할하고,
+                        Admin 서버를 Private Subnet에 배치. Nginx 리버스
+                        프록시와 Bastion Host를 통해서만 접근하도록 강제.
                       </p>
                     </div>
                   </details>
-
-                  <details>
-                    <summary>
-                      👉 3. Docker "Bind for 0.0.0.0:8080 failed" (좀비 포트
-                      충돌)
-                    </summary>
-                    <div class="troubleshooting-content">
-                      <p>
-                        <strong>[문제]</strong> `docker run` 시 8080 포트가 이미
-                        사용 중이라는 에러가 발생했으며, `netstat`으로 확인해도
-                        점유 프로세스가 보이지 않는 ''Ghost Port''
-                        현상이었습니다.
-                      </p>
-                      <p>
-                        <strong>[해결]</strong> `systemctl stop
-                        docker.socket`으로 소켓을 정리하고, User/Admin 서버의
-                        Host 포트를 각각 `8080`, `8081`로 명확히 분리하여 충돌을
-                        원천적으로 방지했습니다.
-                      </p>
-                      <pre><code class="language-bash"># User Server
-docker run -d -p 8080:8080 --name user-server your-image
-
-# Admin Server
-docker run -d -p 8081:8081 --name admin-server your-image</code></pre>
-                      <p>
-                        <strong>[결과]</strong> 안정적인 컨테이너 배포 환경을
-                        구축했습니다.
-                      </p>
-                    </div>
-                  </details>
-
-                  <ul class="actions" style="margin-top: 2em">
+                  <ul class="actions" style="margin-top: 1em">
                     <li>
                       <a
                         href="https://github.com/geeunii/Guesthouse-Platform-MyPart"
                         target="_blank"
-                        rel="noopener noreferrer"
                         class="button small"
-                        >View on GitHub</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </article>
-
-              <article>
-                <a
-                  href="https://github.com/geeunii/Personal_Project"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="image"
-                >
-                  <img
-                    src="images/pic03.jpg"
-                    alt="Java Multi-threading Rhythm Game Engine"
-                  />
-                </a>
-                <div class="inner">
-                  <h4>Dynamic Beat: Java 멀티스레드 리듬 게임</h4>
-                  <span class="small-text"
-                    >Java, Swing, Multi-threading, AWT</span
-                  >
-                  <p>
-                    Java의 핵심 CS 개념인 멀티스레딩, 동기화, GUI 렌더링을
-                    학습하기 위해 제작한 리듬 게임입니다.
-                  </p>
-
-                  <details>
-                    <summary>
-                      👉 1. 수많은 노트 스레드로 인한 메모리 누수 해결
-                    </summary>
-                    <div class="troubleshooting-content">
-                      <p>
-                        <strong>[문제]</strong> 게임이 진행될수록 생성된 Note
-                        스레드가 누적되어 JVM 힙 메모리 사용량이 급증하고 렉이
-                        발생했습니다.
-                      </p>
-                      <p>
-                        <strong>[해결]</strong> 판정선을 지나거나 키 입력이 된
-                        노트는 즉시 `interrupt()`를 호출하여 스레드를
-                        종료시키고, `ArrayList`에서 해당 객체를 `remove()`하여
-                        GC가 자원을 수거하도록 유도했습니다.
-                      </p>
-                      <p>
-                        <strong>[결과]</strong> 장시간 플레이 시에도 안정적인
-                        메모리 점유율을 유지했습니다.
-                      </p>
-                    </div>
-                  </details>
-
-                  <details>
-                    <summary>
-                      👉 2. 음악과 노트의 싱크 밀림 현상 (Time Drift)
-                    </summary>
-                    <div class="troubleshooting-content">
-                      <p>
-                        <strong>[문제]</strong> `Thread.sleep()`의 오차로 인해
-                        시간이 갈수록 음악보다 노트가 느려지는 현상이
-                        발생했습니다.
-                      </p>
-                      <p>
-                        <strong>[해결]</strong> `sleep`에만 의존하지 않고, Music
-                        스레드에서 현재 재생 중인 음악의 타임스탬프를 실시간으로
-                        가져와 `(현재시간 - 노트생성시간) * 속도` 공식을
-                        적용하여 노트의 Y좌표를 강제로 동기화했습니다.
-                      </p>
-                      <p>
-                        <strong>[결과]</strong> 곡이 끝날 때까지 1ms 오차 범위
-                        내에서 정확한 싱크를 유지했습니다.
-                      </p>
-                    </div>
-                  </details>
-
-                  <details>
-                    <summary>
-                      👉 3. 화면 깜빡임 (Screen Flickering) 현상
-                    </summary>
-                    <div class="troubleshooting-content">
-                      <p>
-                        <strong>[문제]</strong> AWT의 `paint()` 메소드가
-                        캔버스를 지우고 다시 그리는 과정이 눈에 보여 심한
-                        깜빡임이 발생했습니다.
-                      </p>
-                      <p>
-                        <strong>[해결]</strong> 가상 이미지를 생성하여 모든
-                        그래픽 요소를 그린 뒤, 완성된 이미지를 한 번에 출력하는
-                        **더블 버퍼링(Double Buffering)** 기법을 도입했습니다.
-                      </p>
-                      <p>
-                        <strong>[결과]</strong> 60fps 수준의 부드러운
-                        애니메이션을 구현했습니다.
-                      </p>
-                    </div>
-                  </details>
-
-                  <ul class="actions" style="margin-top: 2em">
-                    <li>
-                      <a
-                        href="https://github.com/geeunii/Personal_Project"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="button small"
-                        >View on GitHub</a
+                        >GitHub</a
                       >
                     </li>
                   </ul>
@@ -666,50 +368,23 @@ docker run -d -p 8081:8081 --name admin-server your-image</code></pre>
 
         <section id="four">
           <div class="container">
-            <h3>Contact Me</h3>
-            <p>함께 성장할 수 있는 기회를 기다립니다. 언제든 연락 주세요.</p>
+            <h3>Contact</h3>
             <ul class="feature-icons">
-              <li class="icon solid fa-phone">010-2276-2171</li>
               <li class="icon solid fa-envelope">
                 <a href="mailto:koo4934@gmail.com">koo4934@gmail.com</a>
               </li>
               <li class="icon brands fa-github">
-                <a
-                  href="https://github.com/geeunii"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >GitHub</a
-                >
+                <a href="https://github.com/geeunii">GitHub</a>
               </li>
               <li class="icon solid fa-pen-nib">
-                <a
-                  href="https://dun2.tistory.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Tech Blog</a
-                >
+                <a href="https://dun2.tistory.com/">Tech Blog</a>
               </li>
             </ul>
           </div>
         </section>
       </div>
-
-      <section id="footer">
-        <div class="container">
-          <ul class="copyright">
-            <li>&copy; Geuni. All rights reserved.</li>
-            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-          </ul>
-        </div>
-      </section>
     </div>
-
     <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
   </body>
 </html>
