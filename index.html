@@ -9,7 +9,6 @@
     />
     <link rel="stylesheet" href="assets/css/main.css" />
     <style>
-      /* 사이드바 배경색: 신뢰감을 주는 다크 네이비 */
       #header {
         background-color: #2c3e50;
       }
@@ -54,7 +53,7 @@
         font-size: 0.9em;
         color: #777;
         display: block;
-        margin-bottom: 1em;
+        margin-bottom: 0.5em;
       }
       pre {
         background: #f5f5f5;
@@ -66,6 +65,7 @@
         line-height: 1.6;
         padding: 1em 1.5em;
         overflow: auto;
+        margin-top: 10px;
       }
       details {
         margin-top: 1.5em;
@@ -82,8 +82,8 @@
       .troubleshooting-content {
         padding: 0.5em 1.5em 1.5em 1.5em;
       }
-      .fa-blog:before {
-        content: '\f303';
+      .github-btn-container {
+        margin-top: 1.5em;
       }
     </style>
   </head>
@@ -95,7 +95,7 @@
         /></span>
         <h1 id="logo"><a href="#">김형근</a></h1>
         <p>
-          960시간의 몰입으로 증명하는<br />근거 있는 자신감, 백엔드
+          기초는 탄탄하게, 문제는 집요하게.<br />데이터의 가치를 완성하는
           개발자입니다.
         </p>
       </header>
@@ -141,33 +141,26 @@
           <div class="container">
             <header class="major">
               <h2>About Me</h2>
-              <p>
-                데이터의 흐름을 최적화하고,<br />시스템의 신뢰를 구축합니다.
-              </p>
+              <p>비즈니스 임팩트를 만드는 실용주의 개발자</p>
             </header>
             <p>
-              안녕하세요.
-              <strong>결과로 말하는 개발자 김형근</strong>입니다.<br />
-              단순한 기능 구현을 넘어
-              <strong>"성능의 병목을 어떻게 해결할 것인가"</strong>와
-              <strong>"데이터 정합성을 어떻게 유지할 것인가"</strong>를 치열하게
-              고민합니다.
+              안녕하세요. <strong>백엔드 개발자 김형근</strong>입니다.
+              게임콘텐츠 전공으로 다진 <strong>논리적 사고</strong>와 컴퓨터공학
+              부전공으로 정립한 <strong>CS 지식</strong>을 바탕으로, 단순 기능
+              구현을 넘어 시스템의 효율성을 개선하는 데 집중합니다.
             </p>
             <ul>
               <li>
-                <strong>데이터 기반 성능 최적화:</strong> WMS 프로젝트에서 쿼리
-                실행 계획 분석을 통해 N+1 문제를 해결, 데이터 집계 속도를 92%
-                개선했습니다.
+                <strong>성능 최적화:</strong> WMS 프로젝트에서 쿼리 튜닝으로
+                집계 속도를 92% 개선하며 DB의 중요성을 체득했습니다.
               </li>
               <li>
-                <strong>실용적 AI 활용 능력:</strong> LLM(Gemini) API의 비결정성
-                문제를 방어 로직으로 해결하며, 신기술을 안정적으로 서비스에
-                녹여냅니다.
+                <strong>CS 기반 문제 해결:</strong> 리듬 게임 제작을 통해
+                멀티스레딩 동기화와 자원 관리의 핵심 원리를 학습했습니다.
               </li>
               <li>
-                <strong>인프라 운영 마인드:</strong> 100대 이상의 전산 자원을
-                관리했던 조교 경험을 바탕으로, NCP 기반의 보안 네트워크(Private
-                Subnet)를 직접 설계하고 운영합니다.
+                <strong>신뢰 기반 협업:</strong> 전산 실습실 인프라를 관리하며
+                사용자의 불편을 기술로 해결하는 서비스 마인드를 길렀습니다.
               </li>
             </ul>
           </div>
@@ -182,18 +175,17 @@
               </div>
               <div class="col-9 col-12-medium">
                 <h4>신세계 아이앤씨(SSG) K-Digital Training 수료</h4>
-                <p><strong>Java 기반 풀스택/백엔드 과정 (960시간)</strong></p>
+                <p>
+                  <strong>Java 기반 백엔드 개발자 양성 과정 (960시간)</strong>
+                </p>
                 <ul class="project-list">
                   <li>
-                    Spring Boot 3.x 기반의 마이크로서비스 아키텍처 이해 및 실습
+                    Spring Boot 3.x, JPA, MySQL 기반의 대규모 서비스 설계 및 API
+                    최적화 역량 확보
                   </li>
                   <li>
-                    NCP(Naver Cloud Platform)를 활용한 클라우드 네이티브 환경
-                    배포 경험
-                  </li>
-                  <li>
-                    Git Flow 전략을 활용한 팀 단위 협업 및 코드 리뷰 프로세스
-                    체득
+                    NCP VPC 내 보안 아키텍처 설계 및 Git Flow 기반의 팀 협업
+                    프로세스 경험
                   </li>
                 </ul>
               </div>
@@ -205,19 +197,39 @@
               </div>
               <div class="col-9 col-12-medium">
                 <h4>전주대학교 데이터공학과 교육조교</h4>
+                <p><strong>인프라 운영 및 행정 효율화 지원</strong></p>
+                <ul class="project-list">
+                  <li>
+                    전산 실습실 PC 100대 유지보수 및 네트워크 트러블슈팅 전담
+                  </li>
+                  <li>
+                    운영 환경 자동화 및 학내 부서 간 기술 요구사항 조율 능력
+                    배양
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="row experience-item">
+              <div class="col-3 col-12-medium">
+                <span class="experience-date">2018.03 ~ 2024.02</span>
+              </div>
+              <div class="col-9 col-12-medium">
+                <h4>전주대학교 졸업 (학사)</h4>
                 <p>
-                  <strong>전산 실습실 인프라 및 학사 시스템 운영 지원</strong>
+                  <strong
+                    >주전공: 게임콘텐츠학과 (프로그래밍) | 부전공:
+                    컴퓨터공학과</strong
+                  >
                 </p>
                 <ul class="project-list">
                   <li>
-                    <strong>인프라 관리:</strong> 전산 실습실 내 100여 대의 PC
-                    하드웨어 및 소프트웨어 라이선스 관리, 네트워크 트러블슈팅
-                    수행
+                    자료구조, 알고리즘, 운영체제, 네트워크 등 백엔드 필수 CS
+                    지식 우수 성적 이수
                   </li>
                   <li>
-                    <strong>운영 지원:</strong> 학사 행정 이슈 발생 시 기술적
-                    요구사항을 정리하여 유관 부서와 소통, 문제 해결 프로세스
-                    경험
+                    C/C++, C# 기반의 프로젝트 수행을 통한 탄탄한 객체지향
+                    설계(OOP) 역량 확보
                   </li>
                 </ul>
               </div>
@@ -230,19 +242,16 @@
             <h3>Tech Stack</h3>
             <ul class="feature-icons">
               <li class="icon solid fa-code">
-                <strong>Core:</strong> Java 17, Spring Boot 3.x, MySQL
+                <strong>Backend:</strong> Java 17, Spring Boot 3.x, Spring MVC
               </li>
               <li class="icon solid fa-database">
-                <strong>Persistence:</strong> JPA, MyBatis, Redis
+                <strong>Persistence:</strong> JPA, MyBatis, MySQL, Redis
               </li>
               <li class="icon solid fa-cloud">
-                <strong>Infra:</strong> NCP, Docker, Nginx, Linux
+                <strong>DevOps:</strong> NCP, Docker, Nginx, Linux
               </li>
-              <li class="icon solid fa-brain">
-                <strong>AI:</strong> Gemini API, Prompt Engineering
-              </li>
-              <li class="icon solid fa-code-branch">
-                <strong>Tools:</strong> Git, IntelliJ, Slack
+              <li class="icon solid fa-tools">
+                <strong>Tools:</strong> Git, IntelliJ, Postman, Slack
               </li>
             </ul>
           </div>
@@ -253,113 +262,216 @@
             <h3>Projects</h3>
             <div class="features">
               <article>
+                <a
+                  href="https://github.com/geeunii/WMS-Finance-Dashboard"
+                  target="_blank"
+                  class="image"
+                  ><img src="images/pic02.png" alt="WMS"
+                /></a>
                 <div class="inner">
                   <h4>물류 창고 관리 시스템 (WMS)</h4>
                   <span class="small-text"
-                    >Spring Legacy, MyBatis, MySQL, Stream API</span
+                    >Java, MyBatis, MySQL, Stream API</span
                   >
+
                   <details>
-                    <summary>
-                      👉 대용량 데이터 집계 쿼리 최적화 (성능 92% 개선)
-                    </summary>
+                    <summary>👉 1. 대용량 쿼리 최적화 (N+1 문제 해결)</summary>
                     <div class="troubleshooting-content">
                       <p>
-                        <strong>[Situation]</strong> 연간 대시보드 조회 시 월별
-                        쿼리가 반복 실행(N+1)되어 대량 데이터 처리 시 타임아웃
-                        위험 발생.
+                        <strong>[Situation]</strong> 반복적인 월별 조회 쿼리
+                        실행으로 데이터 집계 시 3초 이상의 지연 발생.
                       </p>
                       <p>
                         <strong>[Action]</strong> <code>GROUP BY</code>를
-                        활용하여 쿼리를 단일화하고, 복잡한 비즈니스 계산은
-                        백엔드에서 Java Stream API로 처리하여 DB 부하 분산.
+                        활용하여 쿼리를 24회에서 2회로 축소하고, Java Stream
+                        API로 가공 로직 분리.
                       </p>
+                      <pre><code class="language-sql">SELECT MONTH(sales_date) as month, SUM(amount) FROM sales GROUP BY MONTH(sales_date)</code></pre>
                       <p>
-                        <strong>[Result]</strong> 조회 쿼리를 24회에서 2회로
-                        축소, 응답 속도를 2.5초에서 0.4초로 단축.
+                        <strong>[Result]</strong> 응답 속도 92% 개선 (2.5초 →
+                        0.4초).
                       </p>
                     </div>
                   </details>
+
                   <details>
                     <summary>
-                      👉 정산 데이터 정합성을 위한 트랜잭션 설계
+                      👉 2. 성장률 계산 로직의 정합성 및 안정성 확보
                     </summary>
                     <div class="troubleshooting-content">
                       <p>
-                        <strong>[Problem]</strong> 전표 생성과 재고 업데이트가
-                        동시에 일어날 때, 부분 실패 시 데이터 불일치 가능성
-                        확인.
+                        <strong>[Problem]</strong> 전월 데이터 부재 시
+                        <code>ArithmeticException (Division by Zero)</code> 발생
+                        가능성 확인.
                       </p>
                       <p>
-                        <strong>[Solution]</strong> 서비스 레이어에
-                        <code>@Transactional</code>을 적용하고 고유 번호 생성
-                        로직을 원자적(Atomic)으로 설계하여 정합성 보장.
+                        <strong>[Solution]</strong> 방어적 로직(Zero-check)을
+                        추가하여 예외를 차단하고 안정적인 지표 표출 설계.
+                      </p>
+                      <pre><code class="language-java">double growthRate = (lastMonthAmount == 0) ? 0.0 : ((double)(current - last) / last) * 100;</code></pre>
+                    </div>
+                  </details>
+
+                  <details>
+                    <summary>👉 3. 전표 번호 생성의 동시성 제어</summary>
+                    <div class="troubleshooting-content">
+                      <p>
+                        <strong>[Problem]</strong> 다중 요청 시 고유 전표 번호
+                        중복 생성 위험.
+                      </p>
+                      <p>
+                        <strong>[Solution]</strong>
+                        <code>@Transactional</code>을 적용하여 저장 및 업데이트
+                        과정을 원자적(Atomic)으로 처리.
                       </p>
                     </div>
                   </details>
-                  <ul class="actions" style="margin-top: 1em">
-                    <li>
-                      <a
-                        href="https://github.com/geeunii/WMS-Finance-Dashboard"
-                        target="_blank"
-                        class="button small"
-                        >GitHub</a
-                      >
-                    </li>
-                  </ul>
+
+                  <div class="github-btn-container">
+                    <a
+                      href="https://github.com/geeunii/WMS-Finance-Dashboard"
+                      target="_blank"
+                      class="button small primary"
+                      >GitHub 바로가기</a
+                    >
+                  </div>
                 </div>
               </article>
 
               <article>
+                <a
+                  href="https://github.com/geeunii/Guesthouse-Platform-MyPart"
+                  target="_blank"
+                  class="image"
+                  ><img src="images/pic01.png" alt="Guesthouse"
+                /></a>
                 <div class="inner">
-                  <h4>게스트하우스 플랫폼 (AI & Cloud)</h4>
+                  <h4>AI 기반 게스트하우스 플랫폼</h4>
                   <span class="small-text"
-                    >Spring Boot 3, Vue.js, Gemini API, NCP, Docker</span
+                    >Spring Boot 3, Vue.js, Gemini API, Docker, NCP</span
                   >
+
                   <details>
                     <summary>
-                      👉 AI 응답 비결정성 해결 및 방어적 파싱 로직 구현
+                      👉 1. AI 응답 비결정성 해결 및 방어적 파싱
                     </summary>
                     <div class="troubleshooting-content">
                       <p>
-                        <strong>[Situation]</strong> LLM 응답 포맷이 불규칙하여
-                        런타임에서 <code>ClassCastException</code> 빈번히 발생.
+                        <strong>[Problem]</strong> LLM의 불규칙한 응답 포맷으로
+                        인한 <code>ClassCastException</code> 발생.
                       </p>
                       <p>
-                        <strong>[Action]</strong> JSON 포맷 강제 프롬프트 적용
-                        및 응답 타입을 검증하는 2단계 파싱 헬퍼 클래스 설계.
-                      </p>
-                      <p>
-                        <strong>[Result]</strong> 데이터 파싱 에러 0% 달성 및
-                        안정적인 AI 서비스 제공.
+                        <strong>[Solution]</strong> 2단계 파싱 헬퍼 클래스를
+                        구현하여 타입 검증 및 런타임 안정성 확보.
                       </p>
                     </div>
                   </details>
+
                   <details>
-                    <summary>
-                      👉 Private Subnet 기반의 보안 아키텍처 설계
-                    </summary>
+                    <summary>👉 2. Nginx 리버스 프록시 라우팅 최적화</summary>
                     <div class="troubleshooting-content">
                       <p>
-                        <strong>[Problem]</strong> 외부 노출을 최소화해야 하는
-                        DB와 서버의 보안 위협 상존.
+                        <strong>[Problem]</strong> Private Subnet의 서버와
+                        Public Nginx 간 통신 실패(502 에러).
                       </p>
                       <p>
-                        <strong>[Solution]</strong> NCP에서 VPC를 분할하고,
-                        Admin 서버를 Private Subnet에 배치. Nginx 리버스
-                        프록시와 Bastion Host를 통해서만 접근하도록 강제.
+                        <strong>[Solution]</strong>
+                        <code>proxy_pass</code> 경로에 Private IP를 명시하여
+                        내부 보안 네트워크 구성 완성.
+                      </p>
+                      <pre><code class="language-nginx">location /api/admin/ { proxy_pass http://10.0.x.x:8081; }</code></pre>
+                    </div>
+                  </details>
+
+                  <details>
+                    <summary>👉 3. Docker 컨테이너 배포 환경 안정화</summary>
+                    <div class="troubleshooting-content">
+                      <p>
+                        <strong>[Problem]</strong> 포트 충돌 및 소켓 점유 문제로
+                        인한 배포 실패.
+                      </p>
+                      <p>
+                        <strong>[Solution]</strong> 소켓 정리 및 포트 분리를
+                        통해 배포 자동화의 기반 구축.
                       </p>
                     </div>
                   </details>
-                  <ul class="actions" style="margin-top: 1em">
-                    <li>
-                      <a
-                        href="https://github.com/geeunii/Guesthouse-Platform-MyPart"
-                        target="_blank"
-                        class="button small"
-                        >GitHub</a
-                      >
-                    </li>
-                  </ul>
+
+                  <div class="github-btn-container">
+                    <a
+                      href="https://github.com/geeunii/Guesthouse-Platform-MyPart"
+                      target="_blank"
+                      class="button small primary"
+                      >GitHub 바로가기</a
+                    >
+                  </div>
+                </div>
+              </article>
+
+              <article>
+                <a
+                  href="https://github.com/geeunii/Personal_Project"
+                  target="_blank"
+                  class="image"
+                  ><img src="images/pic03.jpg" alt="Dynamic Beat"
+                /></a>
+                <div class="inner">
+                  <h4>Dynamic Beat: 멀티스레드 리듬 게임</h4>
+                  <span class="small-text"
+                    >Java, Swing, Multi-threading, AWT</span
+                  >
+
+                  <details>
+                    <summary>👉 1. 스레드 누적에 따른 메모리 누수 해결</summary>
+                    <div class="troubleshooting-content">
+                      <p>
+                        <strong>[Problem]</strong> 미종료 스레드 누적으로 JVM 힙
+                        메모리 고갈 발생.
+                      </p>
+                      <p>
+                        <strong>[Solution]</strong> <code>interrupt()</code> 및
+                        자원 해제(remove)를 통해 GC 수거 유도.
+                      </p>
+                    </div>
+                  </details>
+
+                  <details>
+                    <summary>👉 2. 음악과 노트 간의 Time Drift 해결</summary>
+                    <div class="troubleshooting-content">
+                      <p>
+                        <strong>[Problem]</strong>
+                        <code>Thread.sleep()</code> 오차로 곡 후반부 싱크
+                        어긋남.
+                      </p>
+                      <p>
+                        <strong>[Solution]</strong> 타임스탬프 기반 좌표 보정
+                        로직으로 강제 동기화 구현.
+                      </p>
+                    </div>
+                  </details>
+
+                  <details>
+                    <summary>👉 3. 더블 버퍼링을 통한 화면 깜빡임 개선</summary>
+                    <div class="troubleshooting-content">
+                      <p>
+                        <strong>[Problem]</strong> AWT 렌더링 방식의 한계로 인한
+                        깜빡임 발생.
+                      </p>
+                      <p>
+                        <strong>[Solution]</strong> 가상 이미지를 활용한 더블
+                        버퍼링 기법으로 60fps 구현.
+                      </p>
+                    </div>
+                  </details>
+
+                  <div class="github-btn-container">
+                    <a
+                      href="https://github.com/geeunii/Personal_Project"
+                      target="_blank"
+                      class="button small primary"
+                      >GitHub 바로가기</a
+                    >
+                  </div>
                 </div>
               </article>
             </div>
@@ -377,7 +489,7 @@
                 <a href="https://github.com/geeunii">GitHub</a>
               </li>
               <li class="icon solid fa-pen-nib">
-                <a href="https://dun2.tistory.com/">Tech Blog</a>
+                <a href="https://dun2.tistory.com/">Blog</a>
               </li>
             </ul>
           </div>
